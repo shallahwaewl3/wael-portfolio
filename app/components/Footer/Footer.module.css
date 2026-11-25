@@ -1,0 +1,389 @@
+/* ===== خلفية ثابتة داكنة للفوتر ===== */
+.footer {
+  background: #02081c;
+  color: #ffffff;
+  position: relative;
+  direction: ltr;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ===== الموجة ثلاثية الأبعاد بالخلفية (استخدام الصورة الأصلية الموجودة) ===== */
+.waveWrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: clamp(260px, 45vw, 540px);
+  z-index: 0 !important;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.waveImg {
+  object-fit: cover !important;
+  object-position: bottom center !important;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== المحتوى فوق الموجة تماماً (Z-Index 10 & Padding سفلي كافٍ) ===== */
+.content {
+  position: relative;
+  z-index: 10 !important;
+  max-width: 1580px;
+  margin: 0 auto;
+  padding: 80px 32px 340px; /* مسافة كافية لتعويم الكلمات فوق قمم الأمواج */
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 40px;
+}
+
+.brandC {
+  color: #16c7c3;
+  font-size: clamp(5rem, 12vw, 15rem);
+}
+
+/* نص عام */
+.itemText {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #ffffff;
+}
+
+/* أيقونة الموقع */
+.addrIcon {
+  background: linear-gradient(135deg, #FF8A00, #FF3D71);
+}
+
+.addrIcon svg {
+  width: 18px;
+  height: 18px;
+  fill: #ffffff;
+}
+
+.left { 
+  container-type: inline-size; 
+  position: relative;
+  z-index: 10 !important;
+}
+
+/* الشعار الكبير */
+.brand {
+  margin: 0;
+  line-height: 0.95;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(48px, 10cqw, 150px);
+  background: linear-gradient(180deg, #ffffff 65%, #d3d3d3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  z-index: 10 !important;
+}
+
+.brandTop {
+  display: block;
+  margin-bottom: -15px;
+}
+
+.brandBottom {
+  display: block;
+  margin-left: 10px;
+  margin-top: 6px;
+}
+
+/* ===== الكتلة اليمنى ===== */
+.rightPinned {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  position: relative;
+  z-index: 10 !important;
+}
+
+@media (min-width: 1024px) {
+  .rightPinned {
+    position: absolute;
+    top: 80px;
+    right: 32px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    column-gap: 56px;
+    row-gap: 32px;
+    text-align: left;
+    align-items: start;
+    justify-items: start;
+    width: auto;
+    max-width: calc(100% - 64px);
+    z-index: 10 !important;
+  }
+}
+
+/* ===== أعمدة عامة ===== */
+.colTitle { 
+  font-size: 20px; 
+  font-weight: 700; 
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+/* ===================== عمود Contact (صناديق داكنة مستديرة خلف الأرقام والموقع) ===================== */
+.contactCol { 
+  min-width: 270px; 
+}
+
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contactItem { }
+
+.telLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  background: rgba(4, 12, 34, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.telLink:hover {
+  background: rgba(8, 22, 56, 0.98);
+  border-color: rgba(0, 240, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.phoneIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #4C8DFF, #1877F2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+
+.phoneIcon svg {
+  width: 18px;
+  height: 18px;
+  fill: #ffffff;
+}
+
+.telNumber {
+  direction: ltr;
+  unicode-bidi: plaintext;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #ffffff;
+}
+
+/* ===================== أيقونات التواصل ===================== */
+.socialIcons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+  margin-top: 6px;
+}
+
+.socialItem { 
+  position: relative; 
+}
+
+.iconButton {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.iconButton:hover { 
+  transform: translateY(-2px) scale(1.06); 
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.iconButton .icon svg {
+  width: 21px;
+  height: 21px;
+  fill: #ffffff;
+}
+
+.iconButton[data-brand="instagram"] {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285AEB 90%
+  );
+}
+
+.iconButton[data-brand="facebook"] {
+  background: linear-gradient(135deg, #4C8DFF, #1877F2);
+}
+
+.iconButton[data-brand="whatsapp"] {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+/* شارة الاسم */
+.footer,
+.rightPinned,
+.socialIcons,
+.iconButton,
+.badge {
+  direction: ltr !important;
+}
+
+.badge {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 12px);
+  left: auto;
+  transform: translateY(-50%) translateX(6px) scale(0.96);
+  transform-origin: right center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: opacity 0.18s ease, transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (hover: hover) {
+  .iconButton:hover .badge {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0) scale(1);
+  }
+}
+
+.iconButton[data-brand="instagram"] .badge {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285AEB 90%
+  );
+}
+
+.iconButton[data-brand="facebook"] .badge {
+  background: linear-gradient(135deg, #4C8DFF, #1877F2);
+}
+
+.iconButton[data-brand="whatsapp"] .badge {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+/* ===== موبايل وتابلت ===== */
+@media (max-width: 1023px) {
+  .content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 60px 20px 260px;
+    gap: 32px;
+  }
+  .brand {
+    text-align: center;
+  }
+  .rightPinned {
+    position: static;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: center;
+    justify-items: center;
+  }
+  .socialIcons {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+  }
+  .badge { 
+    display: none; 
+  }
+  .contactList { 
+    align-items: center; 
+  }
+  .telLink { 
+    justify-content: center; 
+  }
+  .waveWrap {
+    height: clamp(220px, 45vw, 420px);
+  }
+  .brandBottom {
+    margin-left: 0px;
+  }
+  .brandC {
+    font-size: 5rem;
+  }
+}
+
+/* ===== ديسكتوب Motion Reveal ===== */
+@media (min-width: 1024px) {
+  .brandReveal {
+    opacity: 0;
+    transform: translateY(12vh);
+    transition: transform 780ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 780ms ease;
+    will-change: transform, opacity;
+  }
+
+  .waveReveal {
+    transform: translateY(12vh);
+    transition: transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+  }
+
+  .inview {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brandReveal,
+  .waveReveal,
+  .inview {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

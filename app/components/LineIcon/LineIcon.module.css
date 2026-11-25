@@ -1,0 +1,133 @@
+.icon {
+  width: 44px;
+  height: 44px;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  filter: drop-shadow(0 2px 6px rgba(0, 213, 255, 0.15));
+}
+
+.icon:hover {
+  transform: scale(1.15) translateY(-3px);
+  filter: drop-shadow(0 0 10px rgba(0, 213, 255, 0.6)) drop-shadow(0 0 20px rgba(22, 135, 255, 0.3));
+}
+
+/* Specific inner group animations */
+
+/* Rocket: Bobbing and tilting */
+.rocket {
+  transform-origin: center bottom;
+  animation: rocketBob 4s ease-in-out infinite;
+}
+
+@keyframes rocketBob {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(4deg);
+  }
+}
+
+/* Code: Horizontal breathing/scaling */
+.code {
+  transform-origin: center;
+  animation: codeShift 3.6s ease-in-out infinite;
+}
+
+@keyframes codeShift {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06) scaleX(0.96);
+  }
+}
+
+/* Speed: Slight gauge needle wiggle */
+.speed {
+  transform-origin: 16px 20px; /* Center of speed gauge */
+  animation: speedWiggle 2.8s ease-in-out infinite;
+}
+
+@keyframes speedWiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-6deg);
+  }
+}
+
+/* Cloud: Gentle floating up and down */
+.cloud {
+  transform-origin: center;
+  animation: cloudFloat 4.2s ease-in-out infinite;
+}
+
+@keyframes cloudFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Shop: Slight cart bounce */
+.shop {
+  transform-origin: center bottom;
+  animation: shopBounce 3.8s ease-in-out infinite;
+}
+
+@keyframes shopBounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.02);
+  }
+}
+
+/* API: Pulsing hover shadows and light rotation */
+.api {
+  transform-origin: center;
+  animation: apiRotate 4.8s ease-in-out infinite;
+}
+
+@keyframes apiRotate {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Tools: Slight wrench tilt */
+.tools {
+  transform-origin: 16px 16px;
+  animation: toolsTilt 3.4s ease-in-out infinite;
+}
+
+@keyframes toolsTilt {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+/* UI: Smooth scale pulse */
+.ui {
+  transform-origin: center;
+  animation: uiPulse 4.5s ease-in-out infinite;
+}
+
+@keyframes uiPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}

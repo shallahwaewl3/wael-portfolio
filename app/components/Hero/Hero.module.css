@@ -1,0 +1,660 @@
+.hero {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 40px 0 60px;
+}
+
+.container {
+  width: min(var(--max-width), calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ================= ENTRANCE MICRO-ANIMATIONS ================= */
+@keyframes heroTextFadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(-24px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes portraitEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+/* حركة طفو هادئة للصورة بكرت الشاشة */
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, -7px, 0);
+  }
+}
+
+@keyframes codeCardEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0) rotate(-3deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(-2deg);
+  }
+}
+
+.anim1 { animation: heroTextFadeIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both; will-change: transform, opacity; }
+.anim2 { animation: heroTextFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both; will-change: transform, opacity; }
+.anim3 { animation: heroTextFadeIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both; will-change: transform, opacity; }
+.anim4 { animation: heroTextFadeIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.38s both; will-change: transform, opacity; }
+.anim5 { animation: heroTextFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.48s both; will-change: transform, opacity; }
+.anim6 { animation: heroTextFadeIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.58s both; will-change: transform, opacity; }
+
+/* ================= LEFT COLUMN: TEXT, CTAS, STATS, SOCIALS ================= */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Massive Typographic Headline */
+.headerBlock {
+  margin-bottom: 18px;
+}
+
+.headline {
+  font-size: clamp(38px, 4.6vw, 64px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.headlineSub {
+  display: block;
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: -0.02em;
+  margin-top: 6px;
+  min-height: 1.25em;
+}
+
+.phraseText {
+  display: inline-block;
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.phraseIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.phraseOut {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* Narrative description */
+.description {
+  font-size: clamp(15px, 1.1vw, 17px);
+  line-height: 1.68;
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+/* Front-End Specialty Indicator Pills */
+.techPillsRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.techPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: #e2e8f0;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.techPill:hover {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: rgba(0, 240, 255, 0.35);
+  color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.pillIcon {
+  width: 14px;
+  height: 14px;
+  color: var(--cyan);
+}
+
+.tsMono {
+  font-weight: 800;
+  color: var(--cyan);
+  font-size: 11px;
+}
+
+/* Action CTA Buttons */
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 28px;
+  background: var(--cyan);
+  color: #030712;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  border-radius: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(0, 240, 255, 0.2);
+}
+
+.btnPrimary:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 240, 255, 0.3);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-medium);
+  color: #f1f5f9;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btnIcon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.btnPrimary:hover .btnIcon {
+  transform: translateX(3px);
+}
+
+.btnSecondary:hover .btnIcon {
+  transform: translateY(2px);
+}
+
+/* ================= 1. STATISTICS ROW ================= */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 580px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+  margin-bottom: 22px;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNumber {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: baseline;
+}
+
+.statPlus {
+  color: var(--cyan);
+  font-size: 18px;
+  margin-left: 2px;
+}
+
+.statLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ================= 2. SOCIAL MEDIA ICONS (FREE, NO RIGID SQUARES, FLUID CYAN HOVER) ================= */
+.socialsRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.socialBtn {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.25s ease, filter 0.25s ease;
+}
+
+.socialBtn svg {
+  width: 21px;
+  height: 21px;
+  fill: currentColor;
+  transition: fill 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.socialBtn:hover {
+  transform: translateY(-4px) scale(1.2);
+  color: var(--cyan);
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.65));
+}
+
+.socialBtn:hover svg {
+  fill: var(--cyan);
+}
+
+/* ================= RIGHT COLUMN: PORTRAIT & CODE EDITOR ================= */
+.rightCol {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  perspective: 1000px;
+  width: 100%;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Prominent Portrait Card (Optimized, GPU-friendly) */
+.portraitCard {
+  width: 100%;
+  max-width: 420px;
+  background: #070e22;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 12px 12px 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  position: relative;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  animation: portraitEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both,
+             subtleFloat 6s ease-in-out 0.9s infinite;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.portraitCard:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.portraitImageWrap {
+  width: 100%;
+  aspect-ratio: 4 / 4.8;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #040918;
+  position: relative;
+}
+
+.portraitImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.35s ease;
+}
+
+.portraitCard:hover .portraitImg {
+  transform: scale(1.02);
+}
+
+.portraitBadge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding: 0 6px;
+  gap: 10px;
+}
+
+.portraitDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  flex-shrink: 0;
+}
+
+.portraitInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.portraitInfo strong {
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.portraitInfo span {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.verifiedTag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--cyan);
+  background: rgba(0, 240, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  letter-spacing: 0.05em;
+}
+
+/* Overlapping Code Card (Solid High-Perf Surface - Zero Backdrop Filter Lag) */
+.codeCard {
+  position: absolute;
+  bottom: 24px;
+  left: -28px;
+  width: 310px;
+  background: #070e24;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+  z-index: 5;
+  transform: translate3d(0, 0, 0) rotate(-2deg);
+  will-change: transform, opacity;
+  animation: codeCardEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.codeCard:hover {
+  transform: rotate(0deg) translateY(-4px);
+  border-color: rgba(0, 240, 255, 0.4);
+}
+
+.codeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(4, 9, 22, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 11px 11px 0 0;
+}
+
+.codeDots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.dotRed { background: #ff5f56; }
+.dotYellow { background: #ffbd2e; }
+.dotGreen { background: #27c93f; }
+
+.codeTitle {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.codePerf {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.codeBody {
+  padding: 12px 14px;
+}
+
+.codeSnippet {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.55;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.cKeyword { color: #f43f5e; font-weight: 600; }
+.cFunction { color: #38bdf8; }
+.cString { color: #34d399; }
+.cNumber { color: #fbbf24; }
+
+/* وميض مؤشر التيرمينال التفاعلي */
+.typingCursor {
+  display: inline-block;
+  width: 6px;
+  height: 12px;
+  margin-left: 5px;
+  vertical-align: middle;
+  background: var(--cyan);
+  box-shadow: 0 0 6px var(--cyan);
+  animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ================= RESPONSIVE LAYOUT (TABLET & MOBILE) ================= */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 30px 0 50px;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .rightCol {
+    order: 1;
+    position: relative;
+    width: 100%;
+    align-items: center;
+  }
+
+  .portraitCard {
+    max-width: 360px;
+    width: 100%;
+  }
+
+  .codeCard {
+    position: static;
+    transform: none !important;
+    max-width: 360px;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .leftCol {
+    order: 2;
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .headline {
+    align-items: center;
+  }
+
+  .description {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .techPillsRow {
+    justify-content: center;
+  }
+
+  .ctaGroup {
+    justify-content: center;
+  }
+
+  .statsRow {
+    justify-content: center;
+  }
+
+  .socialsRow {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 16px 0 36px;
+  }
+
+  .container {
+    gap: 32px;
+    width: calc(100% - 32px);
+  }
+
+  .portraitCard {
+    max-width: 300px;
+    padding: 8px 8px 14px;
+    border-radius: 16px;
+  }
+
+  /* حجم أصغر ومضغوط لكود كارد في الموبايل */
+  .codeCard {
+    max-width: 270px;
+    margin-top: 12px;
+    border-radius: 10px;
+  }
+
+  .codeHeader {
+    padding: 6px 10px;
+  }
+
+  .codeTitle {
+    font-size: 9px;
+  }
+
+  .codePerf {
+    font-size: 8.5px;
+    padding: 1px 4px;
+  }
+
+  .codeBody {
+    padding: 9px 11px;
+  }
+
+  .codeSnippet {
+    font-size: 9.5px;
+    line-height: 1.4;
+  }
+
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .socialsRow {
+    justify-content: center;
+  }
+
+  .ctaGroup {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btnPrimary, .btnSecondary {
+    justify-content: center;
+  }
+
+  .headlineSub {
+    font-size: 18px;
+  }
+
+  .techPill {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+}
