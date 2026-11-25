@@ -8,16 +8,16 @@ export const viewport = {
 };
 
 export const metadata = {
-  metadataBase: new URL("https://waelshallah.dev"),
+  metadataBase: new URL("https://wael-portfolio-nine.vercel.app"),
   title: "Wael Al Shallah | Senior Creative Front-End Specialist",
   description: "Senior Creative Front-End Specialist architecting scalable, high-performance web applications with Next.js, React, and TypeScript.",
-  keywords: ["Wael Al Shallah", "Front-End Engineer", "Next.js Developer", "React Architect", "TypeScript Specialist", "Web Development"],
+  keywords: ["Wael Al Shallah", "وائل الشلاح", "Front-End Engineer", "Next.js Developer", "React Architect", "TypeScript Specialist", "Web Development"],
   authors: [{ name: "Wael Al Shallah" }],
   creator: "Wael Al Shallah",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://waelshallah.dev",
+    url: "https://wael-portfolio-nine.vercel.app",
     siteName: "Wael Al Shallah Portfolio",
     title: "Wael Al Shallah | Senior Creative Front-End Specialist",
     description: "Senior Creative Front-End Specialist architecting scalable, high-performance web applications with Next.js, React, and TypeScript.",
